@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Example</title>
+</h:head>
+<h:body>
+	<h:form id="frm">
+		<p:messages autoUpdate="true" />
+		<p:panelGrid columns="2">
+			<p:outputLabel value="login" for="login" />
+			<p:inputText id="login" value="#{verificadPasswordBean.login}" required="true"/>
+			
+			<p:outputLabel value="Password" for="password" />
+			<p:password id="password" value="#{verificadPasswordBean.password}"
+			            feedback="true" weakLabel="Debil" goodLabel="Bueno" 
+			            strongLabel="fuerte" promptLabel="Ingrese un password"
+			            inline="true" required="true" match="confirmacionPassword" />
+			            
+			 <p:outputLabel value="Confirme password" for="confirmacionPassword" />
+			 <p:password  id="confirmacionPassword" required="true" />           
+		</p:panelGrid>
+		
+		<p:commandButton value="Ingresar" action="#{verificadPasswordBean.ingresar}" 
+		                 update="@form" />
+		
+	</h:form>
+
+</h:body>
+
+</html>
