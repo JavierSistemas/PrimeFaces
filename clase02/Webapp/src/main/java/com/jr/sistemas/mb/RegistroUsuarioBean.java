@@ -6,6 +6,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
+
 import org.apache.log4j.Logger;
 
 @ManagedBean
@@ -26,6 +27,14 @@ public class RegistroUsuarioBean implements Serializable
 	public void verDisponibilidad() {
 		log.info("Inicio verDisponibilidad...");
 		log.info("Verificando disponibilidad de:"+this.login);
+		
+		//para el efecto del gif
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			
+		}
+		
 		FacesMessage msg = null;
 		if (login.equalsIgnoreCase("user")) {
 			msg =new  FacesMessage("El login se encuentra ocupado");

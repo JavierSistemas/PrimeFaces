@@ -10,32 +10,31 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Example</title>
 </h:head>
-<!--  process="login @this" -->
+
 <h:body>
 	<h:form id="frm">
 		<p:messages autoUpdate="true" />
-
 		<p:panelGrid columns="2">
-			<p:outputLabel value="Login" for="login" />
 
-			<h:panelGroup>
-				<p:inputText id="login" value="#{registroUsuarioBean.login}"
-					required="true" />
-				<p:commandButton value="Verificar Disponibilidad"
-					action="#{registroUsuarioBean.verDisponibilidad}"
-					process="login @this" />
-			</h:panelGroup>
+			<p:outputLabel value="Login:" for="login" />
+			<p:inputText id="login" value="#{registroUsuarioBean.login}"
+				required="true">
+				<p:ajax listener="#{registroUsuarioBean.verDisponibilidad}"
+					event="change" process="@this"/>
+			</p:inputText>
 
-			<p:outputLabel value="Nombre" for="nombre" />
+			<p:outputLabel value="Nombre:" for="nombre" />
 			<p:inputText id="nombre" value="#{registroUsuarioBean.nombre}"
 				required="true" />
-
 		</p:panelGrid>
 
 		<p:commandButton value="Registrar"
 			action="#{registroUsuarioBean.registrar}" />
 	</h:form>
-
 </h:body>
 
 </html>
+
+
+
+

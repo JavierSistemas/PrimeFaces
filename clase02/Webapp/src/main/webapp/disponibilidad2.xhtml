@@ -19,20 +19,23 @@
 			<p:outputLabel value="Login" for="login" />
 
 			<h:panelGroup>
-				<p:inputText id="login" value="#{registroUsuarioBean.login}" required="true">
-					<p:ajax listener="#{registroUsuarioBean.verDisponibilidad}" event="change" process="@this" />
+				<p:inputText id="login" value="#{registroUsuarioBean.login}"
+					required="true">
+					<p:ajax listener="#{registroUsuarioBean.verDisponibilidad}"
+						event="change" process="@this" />
 				</p:inputText>
 			</h:panelGroup>
 
 			<p:outputLabel value="Nombre" for="nombre" />
-			<p:inputText id="nombre" value="#{registroUsuarioBean.nombre}" required="true" />
+			<p:inputText id="nombre" value="#{registroUsuarioBean.nombre}"
+				required="true" />
 
 		</p:panelGrid>
 
 		<p:commandButton value="Registrar"
-			action="#{registroUsuarioBean.registrar}"/>
+			action="#{registroUsuarioBean.registrar}" />
 	</h:form>
-	
+
 </h:body>
 
 </html>
