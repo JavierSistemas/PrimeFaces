@@ -22,7 +22,8 @@
 				<p:inputTextarea id="sobre" value="#{verificadPasswordBean.sobre}"
 				          cols="40" rows="4" 
 				          autoResize="false" maxlength="160"
-				          counter="contador" counterTemplate="Quedan {0} caracteres" />
+				          counter="contador" counterTemplate="Quedan {0} caracteres" 
+				          completeMethod="#{verificadPasswordBean.completarTexto}"  />
 				          <br/>
 				          <h:outputText id="contador" />
 			</h:panelGroup>

@@ -1,6 +1,8 @@
 package com.jr.sistemas.mb;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -23,6 +25,17 @@ public class VerificadPasswordBean implements Serializable
 		System.out.println("Sobre:"+this.sobre);
 		FacesContext.getCurrentInstance()
 		.addMessage(null, new FacesMessage("Registro actualizado."));
+	}
+	
+	public List<String> completarTexto(String consulta){
+		List<String> resultados = new ArrayList<String>();
+		if (consulta.startsWith("Jo")) {
+			resultados.add("Jorge");
+			resultados.add("Jose");
+			resultados.add("Jorgito del Castillo");
+			resultados.add("Josue Saenz");
+		}
+		return resultados;
 	}
 		
 	public String getLogin() {
