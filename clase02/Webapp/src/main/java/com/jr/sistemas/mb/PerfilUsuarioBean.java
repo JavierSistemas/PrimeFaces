@@ -22,6 +22,10 @@ public class PerfilUsuarioBean implements Serializable
 		.addMessage(null, new FacesMessage("Perfil actualizado"));
 	}
 	
+	public Date getFechaHoy() {
+		return new Date();
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
