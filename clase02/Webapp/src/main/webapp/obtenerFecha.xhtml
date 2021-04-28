@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Obtener fecha</title>
+	
+	<script>
+	PrimeFaces.locales['es'] = {
+		    closeText: 'Cerrar',
+		    prevText: 'Anterior',
+		    nextText: 'Siguiente',
+		    monthNames: ['Enero','Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+		    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+		    dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+		    dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+		    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+		    weekHeader: 'Semana',
+		    firstDay: 0,
+		    isRTL: false,
+		    showMonthAfterYear: false,
+		    yearSuffix: '',
+		    timeOnlyTitle: 'Solo hora',
+		    timeText: 'Tiempo',
+		    hourText: 'Hora',
+		    minuteText: 'Minuto',
+		    secondText: 'Segundo',
+		    currentText: 'Fecha actual',
+		    ampm: false,
+		    month: 'Mes',
+		    week: 'Semana',
+		    day: 'Día',
+		    allDayText : 'Todo el día'
+		};
+	</script>
+</h:head>
+<h:body>
+	<h:form>
+		<p:messages autoUpdate="true" />
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Nombre:" for="nombre" />
+			<p:inputText id="nombre" value="#{perfilUsuarioBean.nombre}"
+				required="true" />
+
+			<p:outputLabel value="Fecha" for="fechaNacimiento" />
+
+		  	<p:calendar id="fechaNacimiento" required="true"
+				value="#{perfilUsuarioBean.fechaNacimiento}" pattern="dd/MM/yyyy"
+				readonlyInput="true"  mode="popup" navigator="false" pages="1"
+				 locale="es" />
+
+
+
+		</p:panelGrid>
+		<p:commandButton value="Actualizar"
+			action="#{perfilUsuarioBean.actualizar}" update="@form" />
+	</h:form>
+	
+	
+</h:body>
+
+</html>
