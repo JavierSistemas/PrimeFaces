@@ -30,14 +30,15 @@
 
 			<p:outputLabel value="Inreses" for="interes" />
 			<p:selectOneListbox id="interes" value="#{perfilUsuarioBean.interes}"
-				required="true">
+				required="true" converter="interes" >
 
 				<f:selectItems value="#{perfilUsuarioBean.intereses}" var="interes"
 					itemLabel="#{interes.descripcion}" itemValue="#{interes}" />
 
 			</p:selectOneListbox>
-
 		</p:panelGrid>
+		
+		<p:commandButton value="Actualizar" update="@form" action="#{perfilUsuarioBean.actualizar}" /> 
 	</h:form>
 </h:body>
 
