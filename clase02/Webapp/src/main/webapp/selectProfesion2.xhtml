@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Example SelectOneListBox</title>
+
+</h:head>
+<h:body>
+	<h:form>
+		<p:messages autoUpdate="true" />
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Nombre:" for="nombre" />
+			<p:inputText id="nombre" value="#{perfilUsuarioBean.nombre}"
+				required="true" />
+
+			<p:outputLabel value="Interes" for="interes" />
+			<p:selectOneMenu id="interes" value="#{perfilUsuarioBean.interes}"
+				required="true" converter="interes" var="i"
+				 filter="true" filterMatchMode="startsWith">	
+				
+				<f:selectItem itemLabel="Seleccione" itemValue="" />	
+				<f:selectItems value="#{perfilUsuarioBean.intereses}" var="interes"
+					itemLabel="#{interes.descripcion}" itemValue="#{interes}" />
+
+				<p:column>
+					<h:graphicImage library="imagenes" name="#{i.nombreIcono}.jpg" />
+				</p:column>
+
+				<p:column>
+					<h:outputText value="#{i.descripcion}" />
+				</p:column>
+			</p:selectOneMenu>
+		</p:panelGrid>
+
+		<p:commandButton value="Actualizar" update="@form"
+			action="#{perfilUsuarioBean.actualizar}" />
+	</h:form>
+</h:body>
+
+</html>

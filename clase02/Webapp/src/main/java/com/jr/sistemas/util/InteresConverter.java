@@ -24,7 +24,7 @@ public class InteresConverter implements Converter
 	}
 
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		if (value!=null) {
+		if (value!=null && !value.equals("")) {
 			Interes interes = (Interes)value;
 			return interes.getNombreIcono();
 		}
