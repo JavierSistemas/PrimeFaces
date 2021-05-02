@@ -30,15 +30,23 @@
 
 			<p:outputLabel value="Inreses" for="interes" />
 			<p:selectOneListbox id="interes" value="#{perfilUsuarioBean.interes}"
-				required="true" converter="interes" >
+				required="true" converter="interes" var="i">
 
 				<f:selectItems value="#{perfilUsuarioBean.intereses}" var="interes"
 					itemLabel="#{interes.descripcion}" itemValue="#{interes}" />
 
+				<p:column>
+					<h:graphicImage library="imagenes" name="#{i.nombreIcono}.jpg" />
+				</p:column>
+
+				<p:column>
+					<h:outputText value= "#{i.descripcion}" />
+				</p:column>
 			</p:selectOneListbox>
 		</p:panelGrid>
-		
-		<p:commandButton value="Actualizar" update="@form" action="#{perfilUsuarioBean.actualizar}" /> 
+
+		<p:commandButton value="Actualizar" update="@form"
+			action="#{perfilUsuarioBean.actualizar}" />
 	</h:form>
 </h:body>
 

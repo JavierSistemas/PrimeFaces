@@ -24,7 +24,7 @@ public class PerfilUsuarioBean implements Serializable
 	public static final List<Interes> INTERESES = new ArrayList<Interes>();
 	
 	static {
-		INTERESES.add(new Interes("Deporte","deporte"));
+		INTERESES.add(new Interes("Deporte","deportes"));
 		INTERESES.add(new Interes("Cine","cine"));
 		INTERESES.add(new Interes("Computación","computacion"));
 		INTERESES.add(new Interes("Lectura","lectura"));
