@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Example</title>
+
+</h:head>
+<h:body>
+	<h:form>
+		<p:messages autoUpdate="true" />
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Nombre:" for="nombre" />
+			<p:inputText id="nombre" value="#{perfilUsuarioBean.nombre}"
+				required="true" />
+
+			<p:outputLabel value="Estado" for="estado" />
+			<p:selectOneListbox id="estado" value="#{perfilUsuarioBean.estado}"
+				required="true">
+				<p:ajax event="change" process="@this" update="ciudad"
+					listener="#{perfilUsuarioBean.cargarCiudades}" />
+					
+				<f:selectItem itemLabel="Seleccione" />
+				<f:selectItems value="#{perfilUsuarioBean.estados}" var="estado"
+					itemLabel="#{estado}" itemValue="#{estado}" />
+			</p:selectOneListbox>
+
+			<p:outputLabel value="Ciudad" for="ciudad" />
+			<p:selectOneListbox id="ciudad" value="#{perfilUsuarioBean.ciudad}"
+				required="true">
+				<f:selectItem itemLabel="Seleccione" />
+				<f:selectItems value="#{perfilUsuarioBean.ciudades}" var="ciudad"
+					itemLabel="#{ciudad}" itemValue="#{ciudad}" />
+			</p:selectOneListbox>
+
+
+		</p:panelGrid>
+
+		<p:commandButton value="Actualizar" update="@form"
+			action="#{perfilUsuarioBean.actualizar}" />
+	</h:form>
+</h:body>
+
+</html>

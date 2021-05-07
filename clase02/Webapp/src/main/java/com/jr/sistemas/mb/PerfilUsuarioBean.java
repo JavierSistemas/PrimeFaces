@@ -20,8 +20,13 @@ public class PerfilUsuarioBean implements Serializable
 	private Date fechaNacimiento;
 	private String profesion;
 	private Interes interes;
+	private String estado;
+	private String ciudad;
 	
 	public static final List<Interes> INTERESES = new ArrayList<Interes>();
+	
+	public   List<String> estados= new ArrayList<String>();
+	public   List<String> ciudades = new ArrayList<String>();
 	
 	static {
 		INTERESES.add(new Interes("Deporte","deportes"));
@@ -29,6 +34,31 @@ public class PerfilUsuarioBean implements Serializable
 		INTERESES.add(new Interes("Computación","computacion"));
 		INTERESES.add(new Interes("Lectura","lectura"));
 	}
+	
+	public PerfilUsuarioBean() {
+		estados.add("MG");
+		estados.add("SP");
+		estados.add("RJ");
+		
+	}
+	
+	public void cargarCiudades() {
+		ciudades.clear();
+		if("MG".equals(estado)) {
+			ciudades.add("Lima");
+			ciudades.add("Huaraz");
+			ciudades.add("Ica");
+		}else if("SP".equals(estado)) {
+			ciudades.add("Chiclayo");
+			ciudades.add("Piura");
+			ciudades.add("Tumbes");
+		}else if("RJ".equals(estado)) {
+			ciudades.add("La Libertad");
+			ciudades.add("Cusco");
+			ciudades.add("Puno");
+		}
+	}
+	
 	
 	public List<Interes> getIntereses(){
 		return INTERESES;
@@ -76,5 +106,40 @@ public class PerfilUsuarioBean implements Serializable
 	public void setInteres(Interes interes) {
 		this.interes = interes;
 	}
-	
+
+
+	public String getEstado() {
+		return estado;
+	}
+
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public List<String> getEstados() {
+		return estados;
+	}
+
+	public void setEstados(List<String> estados) {
+		this.estados = estados;
+	}
+
+	public List<String> getCiudades() {
+		return ciudades;
+	}
+
+	public void setCiudades(List<String> ciudades) {
+		this.ciudades = ciudades;
+	}
 }
